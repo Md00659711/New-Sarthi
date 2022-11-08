@@ -16,4 +16,10 @@ export class DashService {
     return this._http.post<any>(`${this.baseUrl}/user/sheetReport`,req,{headers: headers});
   }
 
+  public voter_list(req : any):Observable<any>{
+      let headers = new HttpHeaders();
+      headers = headers.set('api-key', this.api_key);
+      return this._http.post<any>(`${this.baseUrl}/User/sheetVoter2`,req,{headers: headers});
+  }
+
 }

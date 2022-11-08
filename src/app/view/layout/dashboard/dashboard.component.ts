@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
     search :any ;
     user_info :any;
     totol_voter :any;
+    voter_data :any;
     userPassword = localStorage.getItem('pass');
     assembliyList: Array<any> = [];
 
@@ -23,7 +24,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getDataOfLoginUser();
     this.getDataOfDashData("0");
-
+    this.getDataofvoterlist();
   }
 
   getDataOfLoginUser() {
@@ -74,12 +75,28 @@ export class DashboardComponent implements OnInit {
         next: (data) => {
           this.user_info=data.data;
           this.totol_voter=data.TOTAL_VOTER;
-          console.log(data.data);
         }
 
       });
   }
 
-
+  getDataofvoterlist(){
+    var arg = {
+      sheet_id: this.userDetails.data.id,
+      length: 0,
+      item: 20,
+      parts_no: "",
+      asem_id: "",
+      col_name: "",
+      col_value: "",
+      search: ""
+    }
+    this._dashdata.voter_list(arg).subscribe({
+      next: (data) => {
+        console.log(data.data);
+        this.voter_data=data.data;
+      }
+    });
+  }
 
 }
