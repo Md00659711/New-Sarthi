@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getDataOfLoginUser();
     this.getDataOfDashData("0");
-    this.getDataofvoterlist();
+    
   }
 
   getDataOfLoginUser() {
@@ -80,23 +80,6 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  getDataofvoterlist(){
-    var arg = {
-      sheet_id: this.userDetails.data.id,
-      length: 0,
-      item: 20,
-      parts_no: "",
-      asem_id: "",
-      col_name: "",
-      col_value: "",
-      search: ""
-    }
-    this._dashdata.voter_list(arg).subscribe({
-      next: (data) => {
-        console.log(data.data);
-        this.voter_data=data.data;
-      }
-    });
-  }
+
 
 }

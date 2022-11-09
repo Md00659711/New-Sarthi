@@ -11,17 +11,24 @@ const route: Routes = [
         canActivateChild:[AuthenticationGuard],    
         children: [
             {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            },
+            {
                 path: 'dashboard',
                 loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
             },
             {
-                path: '',
-                redirectTo: 'dashboard',
-                pathMatch: 'full'
+                path: 'search',
+                loadChildren: () => import('./search/search.module').then(m => m.SearchComponentModule)
+            },
+            {
+                path: 'list',
+                loadChildren: () => import('./list/list.module').then(m => m.ListComponentModule)
             }
         ]
     }
-
 ]
 
 @NgModule({

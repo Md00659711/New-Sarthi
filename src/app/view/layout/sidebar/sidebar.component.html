@@ -1,17 +1,17 @@
 <div class="sidebar close " style="margin-top: 3rem;">
     <ul class="nav-links">
       <li [routerLinkActive]="['active']">
-        <a href="#">
+        <a [routerLink]="'/dashboard'">
           <i class="fas fa-list-alt"></i>
           <!-- <span class="link_name">Dashboard</span> -->
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Dashboard</a></li>
+          <li><a class="link_name" [routerLink]="'/dashboard'">Dashboard</a></li>
         </ul>
       </li>
     
       <li [routerLinkActive]="['active']">
-        <a href="#">
+        <a [routerLink]="'search'">
           <i class="fa fa-search" aria-hidden="true"></i>
           <!-- <span class="link_name">Dashboard</span> -->
         </a>
@@ -20,12 +20,12 @@
         </ul>
       </li>
       <li [routerLinkActive]="['active']">
-        <a href="#">
+        <a [routerLink]="'list'">
           <i class="fas fa-list-alt"></i>
           <!-- <span class="link_name">Dashboard</span> -->
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">List</a></li>
+          <li><a class="link_name" [routerLink]="'list'">List</a></li>
         </ul>
       </li>
       <!-- <li [routerLinkActive]="['active']">
